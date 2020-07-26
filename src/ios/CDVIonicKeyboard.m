@@ -91,6 +91,10 @@ NSString* UITraitsClassString;
     }
     self.hideFormAccessoryBar = [settings cordovaBoolSettingForKey:@"HideKeyboardFormAccessoryBar" defaultValue:YES];
 
+    if (self.keyboardResizes == ResizeNative) {
+        [self.webView.superview setBackgroundColor:[UIColor clearColor]];
+    }
+
     NSString *keyboardStyle = [settings cordovaSettingForKey:@"KeyboardStyle"];
     if (keyboardStyle) {
         [self setKeyboardStyle:keyboardStyle];
